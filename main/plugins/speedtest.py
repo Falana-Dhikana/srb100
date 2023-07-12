@@ -8,7 +8,7 @@ from main.__main__ import botStartTime
 
 from telethon import events
 from .. import bot as Drone
-from .. import Bot, AUTH, SUDO_USERS
+from .. import Bot
 
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
@@ -43,7 +43,7 @@ def get_readable_file_size(size_in_bytes) -> str:
         return 'File too large'
 
 
-@Drone.on(events.NewMessage(incoming=True, from_users=SUDO_USERS, pattern='/speedtest'))
+@Drone.on(events.NewMessage(incoming=True,  pattern='/speedtest'))
 async def speedtest(event):
     speed = await event.reply("Running Speed Test. Wait about some secs.")  #edit telethon
     test = Speedtest()
