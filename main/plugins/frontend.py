@@ -27,7 +27,6 @@ message = "Send me the message link you want to start saving from, as a reply to
           
 process=[]
 timer=[]
-user=[]
 
 # To-Do:
 # Make these codes shorter and clean
