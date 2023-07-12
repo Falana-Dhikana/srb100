@@ -1,4 +1,4 @@
-#Github.com/Vasusen-code
+
 
 from pyrogram import Client
 
@@ -20,12 +20,7 @@ API_HASH = config("API_HASH", default=None)
 BOT_TOKEN = config("BOT_TOKEN", default=None)
 SESSION = config("SESSION", default=None)
 FORCESUB = config("FORCESUB", default=None)
-AUTH = config("AUTH", default=None)
-SUDO_USERS = []
-if len(AUTH) != 0:
-    SUDO_USERS = {int(AUTH.strip()) for AUTH in AUTH.split()}
-else:
-    SUDO_USERS = set()
+
 
 bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN) 
 
