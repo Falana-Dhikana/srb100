@@ -54,7 +54,7 @@ async def start(event):
                       buttons=[
                               [Button.inline("SET THUMB.", data="set"),
                                Button.inline("REM THUMB.", data="rem")],
-                              [Button.url("Maintained and Modified by", url="t.me/xTnmgbR6rjgCDF7iPoFfiN8YfBsez9Lv")]
+                              [Button.url("Maintained and Modified by", url="t.me/Nope_Am")]
                               [Button.url("Orignal Code", url="https://github.com/vasusen-code/SaveRestrictedContentBot")]])
     '''
     
