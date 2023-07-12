@@ -10,5 +10,4 @@ services:
       API_HASH: # Your API ID from my.telegram.org
       BOT_TOKEN: # Bot token, get it from @BotFather 
       SESSION: # Pyrogram string session
-      AUTH: # User ID of Bot owner
       FORCESUB: # Username name of public channel without using '@'
