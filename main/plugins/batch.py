@@ -9,7 +9,7 @@ import logging
 import time, os, asyncio
 
 from .. import bot as Drone
-from .. import userbot, Bot, AUTH, SUDO_USERS
+from .. import userbot, Bot
 #from .. import FORCESUB as fs
 from main.plugins.pyroplug import check, get_bulk_msg
 from main.plugins.helpers import get_link, screenshot
@@ -36,7 +36,7 @@ ids = []
     msg = await userbot.get_messages(chat, ids=id)
     await event.client.send_message(event.chat_id, msg) 
 '''   
-@Drone.on(events.NewMessage(incoming=True, from_users=SUDO_USERS, pattern='/batch'))
+@Drone.on(events.NewMessage(incoming=True, pattern='/batch'))
 async def _batch(event):
     '''
     #if not event.is_private:
@@ -50,7 +50,7 @@ async def _batch(event):
     '''
     s = False
     if f'{event.sender_id}' in batch:
-        return await event.reply("You've already started one batch, wait for it to complete you dumbfuck owner!")
+        return await event.reply("You've already started one batch, wait for it to complete you asshole!")
     async with Drone.conversation(event.chat_id) as conv: 
         if not s:
             await conv.send_message("Send me the message link you want to start saving from, as a reply to this message.", buttons=Button.force_reply())
@@ -73,8 +73,8 @@ async def _batch(event):
                 return await conv.send_message("Cannot wait more longer for your response!")
             try:
                 value = int(_range.text)
-                if value > 100:
-                    return await conv.send_message("You can only get upto 100 files in a single batch.")
+                if value > 20:
+                    return await conv.send_message("You can only get upto 20 files in a single batch.")
             except ValueError:
                 return await conv.send_message("Range must be an integer!")
             for i in range(value):
@@ -106,7 +106,7 @@ async def run_batch(userbot, client, sender, countdown, link):
         timer = 60
         if i < 2:
             timer = 2
-        elif i < 100 and i > 2:
+        elif i < 20 and i > 2:
             timer = 1        
             
         if 't.me/c/' not in link:
