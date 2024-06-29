@@ -73,8 +73,8 @@ async def _batch(event):
                 return await conv.send_message("Cannot wait more longer for your response!")
             try:
                 value = int(_range.text)
-                if value > 10000000:
-                    return await conv.send_message("You can only get upto 10000000 files in a single batch.")
+                if value > 100:
+                    return await conv.send_message("You can only get upto 100 files in a single batch.")
             except ValueError:
                 return await conv.send_message("Range must be an integer!")
             for i in range(value):
@@ -103,24 +103,18 @@ async def cancel(event):
     
 async def run_batch(userbot, client, sender, countdown, link):
     for i in range(len(ids)):
-        timer = 6
-        if i < 250:
-            timer = 2
-        elif i < 1000 and i > 100:
-            timer = 3
-        elif i < 10000 and i > 1000:
-            timer = 4
-        elif i < 50000 and i > 10000:
+        timer = 60
+        if i < 25:
             timer = 5
-        elif i < 100000 and i > 50000:
-            timer = 6
-        elif i < 200000 and i > 100000:
-            timer = 8
-        elif i < 1000000: 
+        if i < 50 and i > 25:
             timer = 10
-        
-        if 't.me/c/' not in link:
-            timer = 1 if i < 500 else 2
+        if i < 100 and i > 50:
+            timer = 15
+        if not 't.me/c/' in link:
+            if i < 25:
+                timer = 2
+            else:
+                timer = 3
         try: 
             count_down = f"**Batch process ongoing.**\n\nProcess completed: {i+1}"
             #a =ids[i]
